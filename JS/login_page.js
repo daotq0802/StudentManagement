@@ -1,21 +1,17 @@
 const adminEmail = 'admin@gmail.com'
 const adminPassword = 'admin'
 const dataAdmin = JSON.parse(localStorage.getItem('Admin')) || []
-
+let admin = [{
+    email: adminEmail,
+    password: adminPassword,
+    status: 'offline'
+}]
+localStorage.setItem('Admin', JSON.stringify(admin))
+localStorage.setItem('isLogin', 'false')
 
 checkLogged()
 function checkLogged() {
     let isOnline = localStorage.getItem('isLogin')
-
-    if (dataAdmin.length < 0 || isOnline.length < 0 || dataAdmin == null || isOnline == null) {
-        let admin = [{
-            email: adminEmail,
-            password: adminPassword,
-            status: 'offline'
-        }]
-        localStorage.setItem('Admin', JSON.stringify(admin))
-        localStorage.setItem('isLogin', 'false')
-    }
     if (isOnline != 'false') {
         showToast('Tài khoản vẫn online, chuyển tới Trang chính')
         setTimeout(() => { window.location = './Pages/home_page.html' }, 2000)
@@ -34,7 +30,7 @@ function moveToNextPage() {
         if (adminIndex != -1 && dataAdmin[adminIndex].password == passwordInput.value) {
             localStorage.setItem('isLogin', dataAdmin[adminIndex].email)
 
-            if (dataAdmin[adminIndex].status == 'offline' || (emailInput.value == adminEmail && passwordInput.value == adminPassword)) {
+            if (dataAdmin[adminIndex].status == 'offline') {
                 dataAdmin[adminIndex].status = 'online'
                 localStorage.setItem('Admin', JSON.stringify(dataAdmin))
                 showToast(`Đăng nhập thành công`)
