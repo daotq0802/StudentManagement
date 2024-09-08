@@ -18,7 +18,7 @@ function checkLogged() {
     }
     if (isOnline != 'false') {
         showToast('Tài khoản vẫn online, chuyển tới Trang chính')
-        setTimeout(() => { window.location = '../Session17 - Project/Pages/home_page.html' }, 2000)
+        setTimeout(() => { window.location = './Pages/home_page.html' }, 2000)
     }
 }
 
@@ -39,7 +39,7 @@ function moveToNextPage() {
                 localStorage.setItem('Admin', JSON.stringify(dataAdmin))
                 showToast(`Đăng nhập thành công`)
                 setTimeout(() => {
-                    window.location = '../Session17 - Project/Pages/home_page.html'
+                    window.location = './Pages/home_page.html'
                 }, 2000)
 
             } else {
