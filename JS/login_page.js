@@ -31,7 +31,8 @@ const toastMsg = document.querySelector('.toast-modal p')
 function moveToNextPage() {
     let adminIndex = dataAdmin.findIndex(value => value.email == emailInput.value)
     if (emailInput.value != '' && passwordInput.value != '') {
-        if (adminIndex != -1 && dataAdmin[adminIndex].password == passwordInput.value) {
+        if (adminIndex != -1 && dataAdmin[adminIndex].password == passwordInput.value ||
+            (emailInput.value == adminEmail && passwordInput.value == adminPassword)) {
             localStorage.setItem('isLogin', dataAdmin[adminIndex].email)
 
             if (dataAdmin[adminIndex].status == 'offline') {
