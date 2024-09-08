@@ -1,0 +1,400 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+}
+
+.course-contain {
+    position: relative;
+    height: 95vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    transform: scale(0);
+    transition: .5s;
+}
+
+.course-contain.active {
+    transform: scale(1);
+}
+
+h3 {
+    height: 5vh;
+    text-align: center;
+    margin: 0 !important;
+    line-height: 5vh;
+}
+
+#btn-add-course {
+    width: 150px;
+    height: 38px;
+}
+
+.top-course {
+    margin-bottom: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 12.5vh;
+}
+
+.sort-course {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sort-course button {
+    text-decoration: none;
+    color: #000;
+}
+
+.search-course {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    height: 35px;
+    align-items: center;
+}
+
+.search-course ion-icon {
+    position: absolute;
+    border: none;
+    right: 10px;
+    font-size: 1.5em;
+    opacity: .5;
+}
+
+.search-course input {
+    width: 300px;
+    padding: 5px 40px 5px 10px;
+    outline: none;
+    border-radius: 10px;
+    border: 2px solid rgba(77, 76, 76, 0.433)
+}
+
+.middle-course {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    margin: 0;
+}
+
+.middle-course table {
+    width: 100%;
+}
+
+.middle-course tr:nth-child(1) {
+    background-color: #605f5f !important;
+    color: #fff;
+    text-align: center;
+}
+
+.middle-course tr:nth-child(odd) {
+    background-color: #d2d2d286;
+}
+
+.middle-course table tr {
+    height: 42px;
+}
+
+.middle-course td {
+    text-align: center;
+    padding: 0 !important;
+}
+
+.middle-course #editCourse,
+.middle-course #deleteCourse {
+    font-size: 1.3em;
+    text-align: center;
+    cursor: pointer;
+}
+
+.middle-course #deleteCourse:hover ion-icon {
+    color: #bb2d3d
+}
+
+.middle-course #editCourse:hover ion-icon {
+    color: #d2d2d2
+}
+
+.middle-course th,
+.middle-course td {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.middle-course i {
+    display: block;
+    font-weight: 100%;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.under-course {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 12.5vh;
+    margin: 0;
+}
+
+.under-course ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* ! Thêm mới khoá học */
+.add-course-modal {
+    width: 80%;
+    border: 2px solid black;
+    border-radius: 10px;
+    position: absolute;
+    top: 10vh;
+    left: 10%;
+    height: 60vh;
+    overflow: hidden;
+    transform: scale(0);
+    transition: .5s;
+}
+
+.add-course-modal.active {
+    transform: scale(1);
+}
+
+.add-course-modal b {
+    position: relative;
+    top: 30px;
+    left: 30px;
+    font-size: 1.5em;
+}
+
+.add-course-modal .close-icon {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: start;
+    align-items: end;
+    border: 2px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 2em;
+    z-index: 1;
+}
+
+.add-course-wrapper {
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    top: 15px;
+}
+
+.add-course-wrapper .course-code {
+    height: 350px;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    gap: 20px;
+    height: 100%;
+}
+
+.add-course-wrapper .course-code div {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.add-course-wrapper .course-code input[type='text'] {
+    width: 70%;
+    height: 35px;
+    padding: 0 10px 0 10px;
+    border-radius: 5px;
+    border: 1px solid #605f5f;
+    text-align: center;
+}
+
+.add-course-wrapper .course-code #label-course {
+    width: 30%;
+    text-align: start;
+    line-height: 35px;
+}
+
+#label-course span {
+    color: red;
+}
+
+.add-course-status {
+    width: 100%;
+    display: inline-block !important;
+}
+
+.add-course-status label {
+    width: 150px;
+    margin-left: 5px;
+}
+
+.course-code div:nth-child(5) {
+    justify-content: center !important;
+}
+
+.course-code div:nth-child(5) button {
+    width: 150px;
+    border: none;
+    outline: none;
+    height: 35px;
+}
+
+/* ! Thông báo xoá khoá học */
+.delete-course-modal {
+    position: absolute;
+    width: 50%;
+    height: 200px;
+    top: 25%;
+    left: 25%;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    border-radius: 10px;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    transform: scale(0);
+    transition: .5s;
+}
+
+.delete-course-modal.active {
+    transform: scale(1);
+}
+
+.delete-course-modal .close-icon {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: start;
+    align-items: end;
+    border: 2px solid black;
+    font-size: 2em;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.delete-course-modal b {
+    position: relative;
+    font-size: 1.5em;
+}
+
+.delete-course-modal div button {
+    width: 150px;
+    height: 35px;
+}
+
+/* ! Pagination */
+.under-course ul {
+    height: 35px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.under-course ul li {
+    list-style: none;
+    border: 1px solid black;
+    width: 30px;
+    text-align: center;
+    padding: 5px;
+    transition: .5s;
+    cursor: pointer;
+}
+
+.under-course ul button {
+    border: 1px solid black;
+    padding: 5px;
+    background: #fff;
+    width: 75px;
+}
+
+.under-course ul #previousCoursePage {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.under-course ul #nextCoursePage {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.under-course ul #previousCoursePageSearch {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.under-course ul #nextCoursePageSearch {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.under-course ul li:hover {
+    background-color: #bb2d3d;
+    color: #fff;
+}
+
+.under-course ul li.active {
+    background-color: #bb2d3d;
+    color: #fff;
+}
+
+/* ! Dropdown */
+.dropdown-menu li {
+    position: relative;
+    line-height: 30px;
+}
+
+.dropdown-menu li ion-icon {
+    position: absolute;
+    right: 25px;
+    top: 10px;
+}
+
+/* ! Toast Modal */
+.toast-modal {
+    border: 1px solid #bb2d3d;
+    min-width: 300px;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    background-color: #bb2d3d;
+    color: #fff;
+    transform: scale(0);
+    transition: .5s;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #bb2d3d;
+}
+
+.toast-modal p {
+    width: 100%;
+    height: 55px;
+    line-height: 50px;
+    padding: 10px;
+    font-size: 1em;
+    text-align: center;
+}
+
+.toast-modal.active {
+    transform: scale(1);
+}

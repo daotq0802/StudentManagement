@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../CSS/student_control.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+    <!-- * Quản lý sinh viên -->
+    <h3>QUẢN LÝ SINH VIÊN</h3>
+    <div class="student-contain active">
+        <div class="top-student">
+            <button onclick="renderClass()" class="btn btn-danger" id="btn-add-student" type="button">Thêm
+                mới</button>
+            <div class="search-student">
+                <input placeholder="Nhập từ khoá tìm kiếm" oninput="studentSearch(this)" class="student-search"
+                    type="text">
+                <ion-icon name="search-outline"></ion-icon>
+            </div>
+            <div class="sort-student">
+                <span>Sắp xếp:</span>
+                <div class="dropdown">
+                    <button type="button" id="btn-dropdrown" class="btn btn-link dropdown-toggle"
+                        data-bs-toggle="dropdown">
+                        Lựa chọn
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" onclick="sortData(1)" href="#">Tăng dần <ion-icon
+                                    name="trending-up-outline"></ion-icon></a></li>
+                        <li><a class="dropdown-item" onclick="sortData(2)" href="#">Giảm dần <ion-icon
+                                    name="trending-down-outline"></ion-icon></a></li>
+                        <li><a class="dropdown-item" onclick="sortData(3)" href="#">Mặc định <ion-icon
+                                    name="swap-vertical-outline"></ion-icon></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="middle-student">
+
+        </div>
+        <div class="under-student">
+            <ul></ul>
+        </div>
+    </div>
+    </div>
+    <!-- * Thêm mới, cập nhật sinh viên -->
+    <div class="add-student-modal">
+        <b>Thêm mới sinh viên</b>
+        <div onclick="closeAddStudent()" class="close-icon">
+            <ion-icon name="close-outline"></ion-icon>
+        </div>
+        <div class="add-student-wrapper">
+            <div class="student-code">
+                <input type="text" hidden disabled class="class-id-holder">
+                <div>
+                    <label id="label-student" for="student-id">Mã sinh viên <span>(*)</span></label>
+                    <input type="text" placeholder="Nhập mã sinh viên" id="student-id">
+                </div>
+                <div>
+                    <label id="label-student" for="student-name">Tên sinh viên <span>(*)</span></label>
+                    <input type="text" oninput="convertToEmail(this)" placeholder="Nhập tên sinh viên"
+                        id="student-name">
+                </div>
+                <div>
+                    <label id="label-student" for="student-year">Năm sinh <span>(*)</span></label>
+                    <input type="text" placeholder="Nhập năm sinh" id="student-year">
+                </div>
+                <div>
+                    <label id="label-student" for="student-address">Địa chỉ <span>(*)</span></label>
+                    <input type="text" placeholder="Nhập địa chỉ" id="student-address">
+                </div>
+                <div>
+                    <label id="label-student" for="student-email">Email <span>(*)</span></label>
+                    <input type="text" placeholder="Nhập email" id="student-email">
+                </div>
+                <div>
+                    <label id="label-student" for="student-phone">Số điện thoại <span>(*)</span></label>
+                    <input type="text" placeholder="Nhập số điện thoại" id="student-phone">
+                </div>
+                <!-- <div>
+                    <label id="label-student" for="student-status">Trạng thái <span>(*)</span></label>
+                    <input type="text" placeholder="Nhập trạng thái" id="student-status">
+                </div> -->
+                <div>
+                    <label id="label-student" for="student-status">Trạng thái</label>
+                    <select id="student-status">
+                        <option>-- Chọn trạng thái sinh viên--</option>
+                        <option>Đang học</option>
+                        <option>Tốt nghiệp</option>
+                        <option>Bảo lưu</option>
+                        <option>Đình chỉ</option>
+                        <option>Chờ lớp</option>
+                    </select>
+                </div>
+                <div>
+                    <label id="label-student">Giới tính</label>
+                    <div class="student-gender" style="width: 70%;">
+                        <div>
+                            <input type="radio" name="gender" value="Nam" id="male">
+                            <label for="male">Nam</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="gender" value="Nữ" id="female">
+                            <label for="female">Nữ</label>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <button onclick="confirmAddStudent()" class="addButton btn btn-danger ">Thêm mới</button>
+                    <button onclick="closeAddStudent()" class="btn btn-secondary">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- * Xác nhận xoá sinh viên -->
+    <div class="delete-student-modal">
+        <b>Xác nhận xoá sinh viên</b>
+        <div onclick="closeDeleteStudent()" class="close-icon">
+            <ion-icon name="close-outline"></ion-icon>
+        </div>
+        <input type="text" hidden disabled class="class-id-holder">
+        <p>Bạn chắc chắn muốn xóa sinh viên Nguyễn Văn A?</p>
+        <div>
+            <button onclick="confirmDeleteStudent()" class="btn btn-danger">Có</button>
+            <button onclick="closeDeleteStudent()" class="btn btn-secondary">Không</button>
+        </div>
+    </div>
+    <div class="toast-modal">
+        <p></p>
+    </div>
+    <script type="text/javascript" src="../JS/Object.js"></script>
+    <script type="text/javascript" src="../JS/StudentControl/variables.js"></script>
+    <script type="text/javascript" src="../JS/StudentControl/convert.js"></script>
+    <script type="text/javascript" src="../JS/StudentControl/render.js"></script>
+    <script type="text/javascript" src="../JS/StudentControl/add_update_delete.js"></script>
+    <script type="text/javascript" src="../JS/StudentControl/search.js"></script>
+    <script type="text/javascript" src="../JS/StudentControl/sort.js"></script>
+    <script>
+        renderStudent(dataStudent)
+        renderPages(dataStudent)
+    </script>
+</body>
+
+</html>

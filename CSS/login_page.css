@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+}
+
+body {
+    display: flex;
+    background: url('../Image/background-image.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+form {
+    position: relative;
+    border: 2px solid #fff;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 450px;
+    width: 400px;
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: 0 0 30px #fff;
+    padding: 40px;
+}
+
+form div {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #fff;
+    margin: 30px 0;
+}
+
+form div label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+
+form div input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0 35px 0 5px;
+}
+
+form div input:focus~label,
+form div input:valid~label {
+    top: -5px;
+}
+
+form div .icon {
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: #182938;
+    line-height: 57px;
+}
+
+form button {
+    height: 40px;
+    width: 150px;
+    font-weight: bold;
+    background: transparent;
+    border-radius: 20px;
+    border: 2px solid #fff;
+    transition: .5s;
+}
+
+form button:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+.toast-modal {
+    border: 1px solid #fff;
+    min-width: 300px;
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    transform: scale(0);
+    transition: .5s;
+    border-radius: 10px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 20px #fff;
+}
+
+.toast-modal p {
+    width: 100%;
+    height: 55px;
+    line-height: 50px;
+    padding: 10px;
+    font-size: 1em;
+    text-align: center;
+}
+
+.toast-modal.active {
+    transform: scale(1);
+}

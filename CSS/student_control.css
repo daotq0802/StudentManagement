@@ -1,0 +1,450 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+}
+
+.student-contain {
+    position: relative;
+    height: 95vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    transform: scale(0);
+    transition: .5s;
+}
+
+.student-contain.active {
+    transform: scale(1);
+}
+
+h3 {
+    height: 5vh;
+    text-align: center;
+    margin: 0 !important;
+    line-height: 5vh;
+}
+
+#btn-add-student {
+    width: 150px;
+    height: 38px;
+}
+
+.top-student {
+    margin-bottom: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 12.5vh;
+}
+
+.sort-student {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sort-student button {
+    text-decoration: none;
+    color: #000;
+}
+
+.search-student {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    height: 35px;
+    align-items: center;
+}
+
+.search-student ion-icon {
+    position: absolute;
+    border: none;
+    right: 10px;
+    font-size: 1.5em;
+    opacity: .5;
+}
+
+.search-student input {
+    width: 300px;
+    padding: 5px 40px 5px 10px;
+    outline: none;
+    border-radius: 10px;
+    border: 2px solid rgba(77, 76, 76, 0.433)
+}
+
+.middle-student {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    margin: 0;
+}
+
+.middle-student table {
+    width: 100%;
+}
+
+.middle-student tr:nth-child(1) {
+    background-color: #605f5f !important;
+    color: #fff;
+    text-align: center;
+}
+
+.middle-student tr:nth-child(odd) {
+    background-color: #d2d2d286;
+}
+
+.middle-student table tr {
+    height: 42px;
+}
+
+.middle-student table td {
+    text-align: center;
+    padding: 0 !important;
+}
+
+.middle-student #editStudent,
+.middle-student #deleteStudent {
+    font-size: 1.3em;
+    text-align: center;
+    cursor: pointer;
+}
+
+.middle-student #deleteStudent:hover ion-icon {
+    color: #bb2d3d
+}
+
+.middle-student #editStudent:hover ion-icon {
+    color: #d2d2d2
+}
+
+.middle-student th,
+.middle-student td {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.middle-student tr {
+    height: 40px;
+}
+
+.middle-student i {
+    display: block;
+    font-weight: 100%;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.under-student {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 12.5vh;
+    margin: 0;
+}
+
+.under-student ul {
+    margin: 0;
+    padding: 0;
+}
+
+h4 {
+    width: 100%;
+    text-align: center;
+}
+
+.class-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.class-list button {
+    width: 15%;
+    height: 7vh;
+    background-color: #fff;
+    border-radius: 10px;
+    border: 1px solid #949494
+}
+
+.class-list button:hover {
+    background-color: #949494;
+    color: #fff;
+}
+
+.class-list button:focus {
+    background-color: #dc3545;
+    color: #fff
+}
+
+/* ! Thêm mới khoá học */
+.add-student-modal {
+    width: 80%;
+    border: 2px solid black;
+    border-radius: 10px;
+    position: absolute;
+    top: 10vh;
+    left: 10%;
+    height: 90vh;
+    overflow: hidden;
+    transform: scale(0);
+    transition: .5s;
+}
+
+.add-student-modal.active {
+    transform: scale(1);
+}
+
+.add-student-modal b {
+    position: relative;
+    top: 30px;
+    left: 30px;
+    font-size: 1.5em;
+}
+
+.add-student-modal .close-icon {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: start;
+    align-items: end;
+    border: 2px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 2em;
+    z-index: 1;
+}
+
+.add-student-wrapper {
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    top: 15px;
+}
+
+.add-student-wrapper .student-code {
+    height: 350px;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    gap: 20px;
+    height: 100%;
+}
+
+.add-student-wrapper .student-code div {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.add-student-wrapper .student-code input[type='text'] {
+    width: 70%;
+    text-align: center;
+    height: 35px;
+    border: 1px solid #949494;
+    border-radius: 5px;
+}
+
+.add-student-wrapper .student-code select {
+    width: 70%;
+    text-align: center;
+    height: 35px;
+    border: 1px solid #949494;
+    border-radius: 5px;
+}
+
+.add-student-wrapper .student-code #label-student {
+    width: 30%;
+    text-align: start;
+    line-height: 35px;
+}
+
+#label-student span {
+    color: red;
+}
+
+.add-student-status {
+    width: 100%;
+    display: inline-block !important;
+}
+
+.add-student-status label {
+    width: 150px;
+    margin-left: 5px;
+}
+
+.student-gender {
+    display: flex;
+    justify-content: start !important;
+}
+
+.student-gender label {
+    line-height: 35px;
+}
+
+.student-code div:nth-child(10) {
+    justify-content: center !important;
+}
+
+.student-code div:nth-child(10) button {
+    width: 150px;
+    border: none;
+    outline: none;
+    height: 35px;
+}
+
+/* ! Thông báo xoá khoá học */
+.delete-student-modal {
+    position: absolute;
+    width: 50%;
+    height: 200px;
+    top: 25%;
+    left: 25%;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    border-radius: 10px;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    transform: scale(0);
+    transition: .5s;
+}
+
+.delete-student-modal.active {
+    transform: scale(1);
+}
+
+.delete-student-modal .close-icon {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: start;
+    align-items: end;
+    border: 2px solid black;
+    font-size: 2em;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.delete-student-modal b {
+    position: relative;
+    font-size: 1.5em;
+}
+
+.delete-student-modal div button {
+    width: 150px;
+    height: 35px;
+}
+
+/* ! Pagination */
+.under-student ul {
+    height: 35px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.under-student ul li {
+    list-style: none;
+    border: 1px solid black;
+    width: 30px;
+    text-align: center;
+    padding: 5px;
+    transition: .5s;
+    cursor: pointer;
+}
+
+.under-student ul button {
+    border: 1px solid black;
+    padding: 5px;
+    background: #fff;
+    width: 75px;
+}
+
+.under-student ul #previousStudentPage {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.under-student ul #nextStudentPage {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.under-student ul #previousStudentPageSearch {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.under-student ul #nextStudentPageSearch {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.under-student ul li:hover {
+    background-color: #bb2d3d;
+    color: #fff;
+}
+
+.under-student ul li.active {
+    background-color: #bb2d3d;
+    color: #fff;
+}
+
+/* ! Dropdown */
+.dropdown-menu li {
+    position: relative;
+    line-height: 30px;
+}
+
+.dropdown-menu li ion-icon {
+    position: absolute;
+    right: 25px;
+    top: 10px;
+}
+
+/* ! Toast Modal */
+.toast-modal {
+    border: 1px solid #bb2d3d;
+    min-width: 300px;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    background-color: #bb2d3d;
+    color: #fff;
+    transform: scale(0);
+    transition: .5s;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #bb2d3d;
+}
+
+.toast-modal p {
+    width: 100%;
+    height: 55px;
+    line-height: 50px;
+    padding: 10px;
+    font-size: 1em;
+    text-align: center;
+}
+
+.toast-modal.active {
+    transform: scale(1);
+}

@@ -1,0 +1,160 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    width: 100%;
+    margin: auto;
+    height: 100vh;
+    position: relative;
+}
+
+/* ! Đầu trang (header) */
+header {
+    height: 25vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left-nav {
+    width: 20%;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.left-nav img {
+    width: 100%;
+}
+
+.center-nav {
+    width: 60%;
+    text-align: center;
+    font-size: 1.4rem;
+}
+
+.right-nav {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.right-nav div{
+    font-size: 1.3em;
+}
+.right-nav div span{
+    color: #bb2d3d;
+}
+
+.right-nav button {
+    height: 36px;
+    border: none;
+    width: 150px;
+    border-radius: 7px;
+    font-size: 18px;
+    background-color: #605f5f !important;
+}
+
+/* ! Main Body (Main)*/
+main {
+    display: flex;
+    height: 72vh;
+}
+
+.control-left {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    margin-top: 50px;
+}
+
+.control-left ul li {
+    width: 100%;
+    position: relative;
+    list-style-type: none;
+    background-color: #d2d2d2;
+    margin-bottom: 5px;
+    line-height: 50px;
+    padding-left: 20px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: .5s;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+
+.control-left ul li::after {
+    position: absolute;
+    content: '';
+    height: 3px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    border: 2px solid rgb(168, 61, 61);
+    border-radius: 10px;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: .5s;
+}
+
+.control-left ul li:hover::after {
+    transform-origin: right;
+    transform: scaleX(1);
+}
+
+.control-left ul li:hover {
+    background-color: #9c9c9c;
+    color: #fff;
+}
+
+.control-left ul li.checked::after {
+    position: absolute;
+    content: '';
+    height: 3px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    border: 2px solid rgb(168, 61, 61);
+    border-radius: 10px;
+    transform-origin: left;
+    transform: scaleX(1);
+    transition: .5s;
+}
+
+.control-left ul li.checked {
+    background-color: #9c9c9c;
+    color: #fff;
+}
+
+.view-right {
+    width: 80%;
+    position: relative;
+}
+
+iframe{
+    width: 90%;
+    margin-left: 5%;
+    height: 100%;
+    transform: scale(0);
+    transition: .5s;
+}
+iframe.active{
+    transform: scale(1);
+}
+
+
+/* ! Cuối trang (Footer) */
+footer {
+    height: 3vh;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    line-height: 3vh;
+}
+

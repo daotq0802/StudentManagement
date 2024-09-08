@@ -1,0 +1,290 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+}
+
+.account-contain {
+    position: relative;
+    height: 95vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    transform: scale(0);
+    transition: .5s;
+}
+
+.account-contain.active {
+    transform: scale(1);
+}
+
+h3 {
+    height: 5vh;
+    text-align: center;
+    margin: 0 !important;
+    line-height: 5vh;
+}
+
+.top-account {
+    margin-bottom: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 12.5vh;
+}
+
+.sort-account {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sort-account button {
+    text-decoration: none;
+    color: #000;
+}
+
+.search-account {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    height: 35px;
+    align-items: center;
+}
+
+.search-account ion-icon {
+    position: absolute;
+    border: none;
+    right: 10px;
+    font-size: 1.5em;
+    opacity: .5;
+}
+
+.search-account input {
+    width: 300px;
+    padding: 5px 40px 5px 10px;
+    outline: none;
+    border-radius: 10px;
+    border: 2px solid rgba(77, 76, 76, 0.433)
+}
+
+
+.middle-account {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    margin: 0;
+}
+
+.middle-account table {
+    width: 100%;
+}
+
+.middle-account tr:nth-child(1) {
+    background-color: #605f5f !important;
+    color: #fff;
+    text-align: center;
+}
+
+.middle-account tr:nth-child(odd) {
+    background-color: #d2d2d286;
+}
+
+.middle-account table tr {
+    height: 42px;
+}
+
+.middle-account table td {
+    text-align: center;
+    padding: 0 !important;
+}
+
+.middle-account th,
+.middle-account td {
+    border: 1px solid black;
+    padding: 5px;
+}
+.middle-account i {
+    display: block;
+    font-weight: 100%;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.under-account {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 12.5vh;
+    margin: 0;
+}
+
+.under-account ul {
+    margin: 0;
+    padding: 0;
+}
+
+.middle-account #unLockAccount:hover ion-icon {
+    color: #bb2d3d
+}
+
+.middle-account #lockAccount:hover ion-icon {
+    color: #d2d2d2
+}
+
+.middle-account #lockAccount,
+.middle-account #unLockAccount {
+    font-size: 1.3em;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* ! Thông báo xoá tài khoản */
+.lock-unlock-modal {
+    position: absolute;
+    width: 50%;
+    height: 200px;
+    top: 25%;
+    left: 25%;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    border-radius: 10px;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    transform: scale(0);
+    transition: .5s;
+}
+
+.lock-unlock-modal.active {
+    transform: scale(1);
+}
+
+.lock-unlock-modal .close-icon {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: start;
+    align-items: end;
+    border: 2px solid black;
+    font-size: 2em;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.lock-unlock-modal b {
+    position: relative;
+    font-size: 1.5em;
+}
+
+.lock-unlock-modal div button {
+    width: 150px;
+    height: 35px;
+}
+
+/* ! Pagination */
+.under-account ul {
+    height: 35px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.under-account ul li {
+    list-style: none;
+    border: 1px solid black;
+    width: 30px;
+    text-align: center;
+    padding: 5px;
+    transition: .5s;
+    cursor: pointer;
+}
+
+.under-account ul button {
+    border: 1px solid black;
+    padding: 5px;
+    background: #fff;
+    width: 75px;
+}
+
+.under-account ul #previousAccountPage {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.under-account ul #nextAccountPage {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.under-account ul #previouAccountPageSearch {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.under-account ul #nextAccountPageSearch {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.under-account ul li:hover {
+    background-color: #bb2d3d;
+    color: #fff;
+}
+
+.under-account ul li.active {
+    background-color: #bb2d3d;
+    color: #fff;
+}
+
+/* ! Dropdown */
+.dropdown-menu li {
+    position: relative;
+    line-height: 30px;
+}
+
+.dropdown-menu li ion-icon {
+    position: absolute;
+    right: 25px;
+    top: 10px;
+}
+
+/* ! Toast Modal */
+.toast-modal {
+    border: 1px solid #bb2d3d;
+    min-width: 300px;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    background-color: #bb2d3d;
+    color: #fff;
+    transform: scale(0);
+    transition: .5s;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #bb2d3d;
+}
+
+.toast-modal p {
+    width: 100%;
+    height: 55px;
+    line-height: 50px;
+    padding: 10px;
+    font-size: 1em;
+    text-align: center;
+}
+
+.toast-modal.active {
+    transform: scale(1);
+}
