@@ -1,17 +1,21 @@
 const adminEmail = 'admin@gmail.com'
 const adminPassword = 'admin'
-const dataAdmin = JSON.parse(sessionStorage.getItem('Admin')) || []
-let admin = [{
-    email: adminEmail,
-    password: adminPassword,
-    status: 'offline'
-}]
-sessionStorage.setItem('Admin', JSON.stringify(admin))
-sessionStorage.setItem('isLogin', 'false')
+const dataAdmin = JSON.parse(localStorage.getItem('Admin')) || []
+
 
 checkLogged()
 function checkLogged() {
-    let isOnline = sessionStorage.getItem('isLogin')
+    let isOnline = localStorage.getItem('isLogin')
+
+    if (dataAdmin == null || isOnline == null) {
+        let admin = [{
+            email: adminEmail,
+            password: adminPassword,
+            status: 'offline'
+        }]
+        localStorage.setItem('Admin', JSON.stringify(admin))
+        localStorage.setItem('isLogin', 'false')
+    }
     if (isOnline != 'false') {
         showToast('Tài khoản vẫn online, chuyển tới Trang chính')
         setTimeout(() => { window.location = './Pages/home_page.html' }, 2000)
